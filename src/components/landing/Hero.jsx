@@ -15,14 +15,16 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={HERO_BG_URL}
-          alt="Vector Fast Print Production"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/95 to-white/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60" />
+      <div className="absolute inset-0 bg-slate-900">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+          <img
+            src={HERO_BG_URL}
+            alt="Vector Fast Print Production"
+            className="w-auto h-auto max-w-4xl max-h-[70vh] object-contain opacity-20 blur-sm"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/90 to-slate-900/95" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
       </div>
 
       {/* Animated background elements */}
@@ -53,10 +55,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-slate-900/5 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
           >
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-slate-700 text-sm font-medium">24/7 English Support Available</span>
+            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+            <span className="text-white/90 text-sm font-medium">24/7 English Support Available</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -64,7 +66,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
           >
             Your Trusted{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">
@@ -78,7 +80,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-slate-700 font-medium mb-4"
+            className="text-lg sm:text-xl text-slate-300 font-medium mb-4"
           >
             Same-Day Printing • 24/7 English Support • Free Delivery Across Istanbul
           </motion.p>
@@ -86,7 +88,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-base text-slate-600 mb-10"
+            className="text-base text-slate-400 mb-10"
           >
             Business cards, banners, brochures, exhibition graphics—plus full event management when you need it.
           </motion.p>
@@ -105,7 +107,7 @@ export default function Hero() {
             >
               <Button 
                 size="lg"
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-xl transition-all hover:scale-105"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
               >
                 <MessageCircle className="w-5 h-5" />
                 Get Instant Quote via WhatsApp
@@ -117,7 +119,7 @@ export default function Hero() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-slate-300 bg-white hover:bg-slate-50 text-slate-900 gap-3 h-14 px-8 text-lg font-semibold rounded-xl transition-all hover:scale-105"
+                className="w-full sm:w-auto border-white/30 bg-white/5 hover:bg-white/10 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl backdrop-blur-sm"
               >
                 <Mail className="w-5 h-5" />
                 Email Us Now
@@ -135,9 +137,9 @@ export default function Hero() {
             {trustBadges.map((badge, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-2 text-slate-700"
+                className="flex items-center gap-2 text-white/80"
               >
-                <CheckCircle className="w-5 h-5 text-emerald-500" />
+                <CheckCircle className="w-5 h-5 text-emerald-400" />
                 <span className="text-sm font-medium">{badge.text}</span>
               </div>
             ))}
@@ -155,9 +157,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-slate-300 rounded-full flex items-start justify-center p-2"
+          className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
         >
-          <motion.div className="w-1.5 h-1.5 bg-slate-600 rounded-full" />
+          <motion.div className="w-1.5 h-1.5 bg-white rounded-full" />
         </motion.div>
       </motion.div>
     </section>
