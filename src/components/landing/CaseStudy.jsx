@@ -3,7 +3,14 @@ import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const PRINT_PHOTO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_694d3500c13a70f8ae96442d/c2afae52b_Screenshot2025-12-25at160133.png";
+const imperialTobaccoImages = [
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/c0d176b28_imperialtobacco1.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/36cf4d889_imperialtobacco2.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/ef8c687ae_imperialtobacco3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/ed202b8ff_imperialtobacco4.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/31dbc8ecc_imperialtobacco6.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/26c1935c5_imperialtobacco7.jpg",
+];
 
 const solutionPoints = [
   'Complete booth design, construction, and installation',
@@ -14,6 +21,15 @@ const solutionPoints = [
 ];
 
 export default function CaseStudy() {
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % imperialTobaccoImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="case-study" className="py-24 lg:py-32 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,17 +61,52 @@ export default function CaseStudy() {
           className="bg-white rounded-3xl shadow-xl overflow-hidden"
         >
           <div className="grid lg:grid-cols-2">
-            {/* Image Side */}
-            <div className="relative h-64 lg:h-auto min-h-[400px]">
-              <img
-                src={PRINT_PHOTO_URL}
-                alt="Imperial Tobacco Project - Printing Production"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent lg:bg-gradient-to-r" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-medium">
-                  Production in Progress
+            {/* Image Gallery Side */}
+            <div className="relative h-96 lg:h-auto min-h-[500px] bg-slate-900 overflow-hidden">
+              {/* Main Featured Image with Fade Transition */}
+              <div className="relative w-full h-full">
+                {imperialTobaccoImages.map((image, index) => (
+                  <motion.img
+                    key={index}
+                    src={image}
+                    alt={`Imperial Tobacco Project ${index + 1}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ 
+                      opacity: currentImageIndex === index ? 1 : 0,
+                      scale: currentImageIndex === index ? 1.05 : 1
+                    }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+              </div>
+
+              {/* Thumbnail Gallery */}
+              <div className="absolute bottom-4 left-4 right-4 flex gap-2 overflow-x-auto pb-2">
+                {imperialTobaccoImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                      currentImageIndex === index 
+                        ? 'border-white scale-110' 
+                        : 'border-white/30 opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Project Label */}
+              <div className="absolute top-6 left-6">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-violet-500 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                  Exhibition Project
                 </span>
               </div>
             </div>

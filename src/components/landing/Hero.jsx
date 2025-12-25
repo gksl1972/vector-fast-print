@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail, CheckCircle, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const DELIVERY_CAR_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_694d3500c13a70f8ae96442d/9553d5851_VFP2026-delivery3.png";
+const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/b5ff9359a_VFPwebbackground.png";
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -17,12 +17,12 @@ export default function Hero() {
       {/* Background with gradient overlay */}
       <div className="absolute inset-0">
         <img
-          src={DELIVERY_CAR_URL}
-          alt="Vector Fast Print Delivery"
+          src={HERO_BG_URL}
+          alt="Vector Fast Print Production"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/95 to-white/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/60" />
       </div>
 
       {/* Animated background elements */}
@@ -53,10 +53,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 bg-slate-900/5 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2 mb-8"
           >
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">24/7 English Support Available</span>
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            <span className="text-slate-700 text-sm font-medium">24/7 English Support Available</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -64,11 +64,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6"
           >
-            Fast-Track Your{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
-              Exhibition Success
+            Your Trusted{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">
+              Digital Printing Partner
             </span>{' '}
             in Istanbul
           </motion.h1>
@@ -78,17 +78,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-slate-300 mb-4"
+            className="text-lg sm:text-xl text-slate-700 font-medium mb-4"
           >
-            24/7 English Support • Same-Day Delivery • Premium Print & Event Solutions
+            Same-Day Printing • 24/7 English Support • Free Delivery Across Istanbul
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-base text-slate-400 mb-10"
+            className="text-base text-slate-600 mb-10"
           >
-            Your trusted partner for international exhibitions, conferences, and corporate events across Istanbul.
+            Business cards, banners, brochures, exhibition graphics—plus full event management when you need it.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -105,7 +105,7 @@ export default function Hero() {
             >
               <Button 
                 size="lg"
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-xl transition-all hover:scale-105"
               >
                 <MessageCircle className="w-5 h-5" />
                 Get Instant Quote via WhatsApp
@@ -117,7 +117,7 @@ export default function Hero() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white/30 bg-white/5 hover:bg-white/10 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl backdrop-blur-sm"
+                className="w-full sm:w-auto border-slate-300 bg-white hover:bg-slate-50 text-slate-900 gap-3 h-14 px-8 text-lg font-semibold rounded-xl transition-all hover:scale-105"
               >
                 <Mail className="w-5 h-5" />
                 Email Us Now
@@ -135,9 +135,9 @@ export default function Hero() {
             {trustBadges.map((badge, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-2 text-white/80"
+                className="flex items-center gap-2 text-slate-700"
               >
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
+                <CheckCircle className="w-5 h-5 text-emerald-500" />
                 <span className="text-sm font-medium">{badge.text}</span>
               </div>
             ))}
@@ -155,9 +155,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+          className="w-6 h-10 border-2 border-slate-300 rounded-full flex items-start justify-center p-2"
         >
-          <motion.div className="w-1.5 h-1.5 bg-white rounded-full" />
+          <motion.div className="w-1.5 h-1.5 bg-slate-600 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

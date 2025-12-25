@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_694d3500c13a70f8ae96442d/e364efa28_VFP2026Logo3-bozemin.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/1c82d6f69_VFP2026Logo-1.png";
 
 const navItems = [
   { label: 'Services', href: '#services' },
@@ -41,8 +41,8 @@ export default function Header() {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
+            ? 'bg-white shadow-lg' 
+            : 'bg-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,9 +62,7 @@ export default function Header() {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-sm font-medium transition-colors hover:text-sky-500 ${
-                    isScrolled ? 'text-slate-700' : 'text-white'
-                  }`}
+                  className="text-sm font-medium transition-colors hover:text-sky-500 text-slate-700"
                 >
                   {item.label}
                 </button>
@@ -90,9 +88,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg ${
-                isScrolled ? 'text-slate-700' : 'text-white'
-              }`}
+              className="lg:hidden p-2 rounded-lg text-slate-700"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

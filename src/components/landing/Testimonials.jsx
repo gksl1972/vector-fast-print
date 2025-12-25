@@ -167,46 +167,6 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
-
-        {/* All Testimonials Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className={`p-6 rounded-2xl border transition-all cursor-pointer ${
-                index === currentIndex 
-                  ? 'bg-sky-50 border-sky-200 shadow-lg' 
-                  : 'bg-slate-50 border-slate-100 hover:shadow-md'
-              }`}
-              onClick={() => {
-                setAutoplay(false);
-                setCurrentIndex(index);
-              }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{testimonial.flag}</span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">{testimonial.company}</p>
-                  <p className="text-xs text-slate-500">{testimonial.country}</p>
-                </div>
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
-                "{testimonial.quote}"
-              </p>
-              <p className="text-xs text-slate-400 mt-3">— {testimonial.role}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
