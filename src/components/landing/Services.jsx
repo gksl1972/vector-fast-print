@@ -68,10 +68,10 @@ export default function Services() {
             What We Offer
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Complete Event Solutions
+            Fast Digital Printing & Complete Event Services
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            From concept to execution—we handle everything for your Istanbul event
+            From urgent print jobs to full-scale events—we deliver on time, every time
           </p>
         </motion.div>
 

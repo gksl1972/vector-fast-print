@@ -20,11 +20,11 @@ export default function Hero() {
           <img
             src={HERO_BG_URL}
             alt="Vector Fast Print Production"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-60"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/80 to-slate-900/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/40 to-slate-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/30" />
       </div>
 
       {/* Animated background elements */}
