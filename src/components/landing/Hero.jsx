@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail, CheckCircle, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/b5ff9359a_VFPwebbackground.png";
+const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/95c7fdc9d_VFPwebbackground.png";
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -16,15 +16,15 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-slate-900">
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src={HERO_BG_URL}
             alt="Vector Fast Print Production"
-            className="w-auto h-auto max-w-4xl max-h-[70vh] object-contain opacity-20 blur-sm"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/90 to-slate-900/95" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/80 to-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/50" />
       </div>
 
       {/* Animated background elements */}
