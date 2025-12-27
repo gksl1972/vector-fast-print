@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Why International Companies<br />Choose Vector Fast Print
+            Why International Companies<br />Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">Vector Fast Print</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Built for the pace and precision of global business
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300"
+              className="group relative bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
             >
               {/* Number */}
               <span className="absolute top-6 right-6 text-6xl font-bold text-slate-100">
@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
               </span>
 
               {/* Icon */}
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${item.bgColor} mb-6`}>
+              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${item.bgColor} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <item.icon className={`w-7 h-7 ${item.color}`} />
               </div>
 

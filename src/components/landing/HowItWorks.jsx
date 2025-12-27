@@ -16,7 +16,7 @@ const steps = [
     number: '2',
     icon: FileCheck,
     title: 'Confirm & Approve',
-    description: 'Get detailed quote within 1 hour including specs, timeline, and delivery details. Approve via message. Payment by wire transfer, credit card link, or cash on delivery.',
+    description: 'Get detailed quote within 1 hour including specs, timeline, and delivery details. All quotes and payments are processed in Euro (€). Approve via message. Payment by wire transfer, credit card link, or cash on delivery.',
     color: 'bg-violet-500',
   },
   {
@@ -44,7 +44,7 @@ export default function HowItWorks() {
             Our Process
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            From First Contact to Final Delivery
+            From <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">First Contact</span> to <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">Final Delivery</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Simple process, exceptional results
@@ -67,9 +67,9 @@ export default function HowItWorks() {
                 className="relative"
               >
                 {/* Step card */}
-                <div className="bg-slate-50 rounded-3xl p-8 h-full border border-slate-100 hover:shadow-lg transition-shadow">
+                <div className="group bg-slate-50 rounded-3xl p-8 h-full border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                   {/* Number circle */}
-                  <div className={`relative z-10 w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <div className={`relative z-10 w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
 

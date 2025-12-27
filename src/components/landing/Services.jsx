@@ -87,10 +87,11 @@ export default function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`group relative bg-gradient-to-br ${service.bgGradient} rounded-3xl p-8 lg:p-10 border border-slate-100 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500`}
+              whileHover={{ y: -8 }}
+              className={`group relative bg-gradient-to-br ${service.bgGradient} rounded-3xl p-8 lg:p-10 border border-slate-100 hover:shadow-2xl hover:shadow-${service.gradient.split('-')[1]}-500/30 transition-all duration-500 cursor-pointer`}
             >
               {/* Icon */}
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} shadow-lg mb-6`}>
+              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <service.icon className="w-7 h-7 text-white" />
               </div>
 

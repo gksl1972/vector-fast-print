@@ -29,7 +29,7 @@ export default function FinalCTA() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Get Started?
+            Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">Get Started</span>?
           </h2>
           <p className="text-xl text-slate-300 mb-10">
             Reach out now—we respond in minutes, not hours

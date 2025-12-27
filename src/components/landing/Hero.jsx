@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail, CheckCircle, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/95c7fdc9d_VFPwebbackground.png";
+const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/9f60a7fb5_image_5.png";
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -118,8 +118,7 @@ export default function Hero() {
             >
               <Button 
                 size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-white/30 bg-white/5 hover:bg-white/10 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl backdrop-blur-sm"
+                className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all"
               >
                 <Mail className="w-5 h-5" />
                 Email Us Now
@@ -139,7 +138,7 @@ export default function Hero() {
                 key={index}
                 className="flex items-center gap-2 text-white/80"
               >
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
+                <badge.icon className="w-5 h-5 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-orange-500" style={{ WebkitTextFillColor: 'transparent', backgroundClip: 'text' }} />
                 <span className="text-sm font-medium">{badge.text}</span>
               </div>
             ))}

@@ -4,6 +4,7 @@ import { CheckCircle, ArrowRight, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const imperialTobaccoImages = [
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/b94814e3e_image_8.png",
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/c0d176b28_imperialtobacco1.jpg",
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/36cf4d889_imperialtobacco2.jpg",
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/ef8c687ae_imperialtobacco3.jpg",
@@ -45,7 +46,7 @@ export default function CaseStudy() {
             Portfolio
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Recent Project: Imperial Tobacco<br />International Event
+            Recent Project: <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">Imperial Tobacco</span><br />International Event
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Full-scale exhibition production in Istanbul
