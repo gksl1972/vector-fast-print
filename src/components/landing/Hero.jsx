@@ -138,7 +138,9 @@ export default function Hero() {
                 key={index}
                 className="flex items-center gap-2 text-white/80"
               >
-                <badge.icon className="w-5 h-5 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-orange-500" style={{ WebkitTextFillColor: 'transparent', backgroundClip: 'text' }} />
+                <div className="w-5 h-5 rounded-full bg-gradient-to-r from-orange-500 via-violet-500 to-orange-500 flex items-center justify-center">
+                  <badge.icon className="w-3.5 h-3.5 text-white" />
+                </div>
                 <span className="text-sm font-medium">{badge.text}</span>
               </div>
             ))}

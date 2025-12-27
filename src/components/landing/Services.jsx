@@ -68,7 +68,7 @@ export default function Services() {
             What We Offer
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Fast Digital Printing & Complete Event Services
+            Fast Digital Printing <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">&</span> Complete Event Services
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             From urgent print jobs to full-scale events—we deliver on time, every time
