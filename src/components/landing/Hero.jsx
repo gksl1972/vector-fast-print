@@ -110,7 +110,7 @@ export default function Hero() {
                 className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
               >
                 <MessageCircle className="w-5 h-5" />
-                Get Instant Quote via WhatsApp
+                WhatsApp Quote
               </Button>
             </a>
             <a
@@ -118,10 +118,11 @@ export default function Hero() {
             >
               <Button 
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all"
+                variant="outline"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border-2 border-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl transition-all"
               >
                 <Mail className="w-5 h-5" />
-                Email Us Now
+                Email Us
               </Button>
             </a>
           </motion.div>
