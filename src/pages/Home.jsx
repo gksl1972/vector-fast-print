@@ -9,10 +9,12 @@ import Testimonials from '@/components/landing/Testimonials';
 import FinalCTA from '@/components/landing/FinalCTA';
 import Footer from '@/components/landing/Footer';
 import BackToTop from '@/components/landing/BackToTop';
+import SEO from '@/components/SEO';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO />
       <Header />
       <main>
         <Hero />
