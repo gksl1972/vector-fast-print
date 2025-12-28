@@ -38,7 +38,7 @@ const trustPoints = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-24 lg:py-32 bg-slate-50">
+    <section id="why-us" className="py-12 sm:py-16 lg:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
