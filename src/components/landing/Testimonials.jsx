@@ -70,7 +70,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 bg-white">
+    <section id="testimonials" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
