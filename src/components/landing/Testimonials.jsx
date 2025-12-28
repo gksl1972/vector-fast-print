@@ -46,6 +46,20 @@ const testimonials = [
     country: "UK",
     flag: "🇬🇧",
   },
+  {
+    quote: "We coordinated our entire seminar printing needs remotely with Vector Fast Print—everything was delivered perfectly to our Istanbul venue. Their English communication made the whole process effortless, even from France.",
+    role: "Executive Assistant",
+    company: "Imperial Tobacco",
+    country: "France",
+    flag: "🇫🇷",
+  },
+  {
+    quote: "Ordered flyers and brochures for our Istanbul conference without ever visiting the city. VFP delivered directly to our venue exactly as specified. Impressive remote coordination and reliability.",
+    role: "Managing Partner",
+    company: "Wallarm",
+    country: "USA",
+    flag: "🇺🇸",
+  },
 ];
 
 export default function Testimonials() {
