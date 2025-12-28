@@ -61,7 +61,7 @@ export default function Hero() {
             <span className="text-white/90 text-sm font-medium">24/7 English Support Available</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline - H1 for SEO */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

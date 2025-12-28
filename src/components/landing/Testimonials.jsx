@@ -97,7 +97,7 @@ export default function Testimonials() {
           <span className="inline-block text-sky-600 font-semibold text-sm tracking-wider uppercase mb-4">
             Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6" id="testimonials">
             Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">International Teams</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">

@@ -67,7 +67,7 @@ export default function Services() {
           <span className="inline-block text-sky-600 font-semibold text-sm tracking-wider uppercase mb-4">
             What We Offer
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6" id="services">
             Fast Digital Printing<br className="sm:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">&</span><br className="sm:hidden" /> Complete Event Services
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
