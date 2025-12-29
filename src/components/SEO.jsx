@@ -62,7 +62,7 @@ export default function SEO() {
     
     // ========== TRACKING CODES START ==========
     
-    // Google Tag Manager - USER MUST REPLACE GTM-XXXXXXX
+    // Google Tag Manager - GTM-NFNFBZZV
     if (!window.dataLayer) {
       window.dataLayer = window.dataLayer || [];
       const gtmScript = document.createElement('script');
@@ -70,12 +70,12 @@ export default function SEO() {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');`;
+})(window,document,'script','dataLayer','GTM-NFNFBZZV');`;
       document.head.insertBefore(gtmScript, document.head.firstChild);
       
       // GTM noscript
       const noscript = document.createElement('noscript');
-      noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
+      noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
       document.body.insertBefore(noscript, document.body.firstChild);
     }
     
