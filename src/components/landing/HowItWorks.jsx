@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, FileCheck, Truck } from 'lucide-react';
 
-const DELIVERY_CAR_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_694d3500c13a70f8ae96442d/9553d5851_VFP2026-delivery3.png";
+const DELIVERY_CAR_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/28af3d281_image_4.jpg";
 
 const steps = [
   {
