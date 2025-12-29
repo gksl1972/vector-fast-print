@@ -104,6 +104,17 @@ export default function Hero() {
               href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.%0A%0ADetails%3A%0A-%20Service%3A%20%0A-%20Deadline%3A%20%0A-%20Location%3A%20%0A%0AThanks!"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                // GTM Event Tracking
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  'event': 'whatsapp_click',
+                  'button_location': 'hero',
+                  'button_text': 'WhatsApp Quote'
+                });
+                // Google Ads Conversion Tracking (uncomment and replace AW-XXXXXXXXX when ready)
+                // window.gtag && window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXX'});
+              }}
             >
               <Button 
                 size="lg"
@@ -115,6 +126,15 @@ export default function Hero() {
             </a>
             <a
               href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
+              onClick={() => {
+                // GTM Event Tracking
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  'event': 'email_click',
+                  'button_location': 'hero',
+                  'button_text': 'Email Us'
+                });
+              }}
             >
               <Button 
                 size="lg"

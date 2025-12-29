@@ -41,6 +41,17 @@ export default function FinalCTA() {
               href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                // GTM Event Tracking
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  'event': 'whatsapp_click',
+                  'button_location': 'final_cta',
+                  'button_text': 'Message on WhatsApp'
+                });
+                // Google Ads Conversion Tracking (uncomment and replace AW-XXXXXXXXX when ready)
+                // window.gtag && window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXX'});
+              }}
             >
               <Button 
                 size="lg"
@@ -55,6 +66,15 @@ export default function FinalCTA() {
             </a>
             <a
               href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
+              onClick={() => {
+                // GTM Event Tracking
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  'event': 'email_click',
+                  'button_location': 'final_cta',
+                  'button_text': 'Email Us'
+                });
+              }}
             >
               <Button 
                 size="lg"
