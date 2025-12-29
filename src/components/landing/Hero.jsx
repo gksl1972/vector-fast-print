@@ -108,6 +108,7 @@ export default function Hero() {
               href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.%0A%0ADetails%3A%0A-%20Service%3A%20%0A-%20Deadline%3A%20%0A-%20Location%3A%20%0A%0AThanks!"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Contact via WhatsApp"
               onClick={() => {
                 // GTM Event Tracking
                 window.dataLayer = window.dataLayer || [];
@@ -130,6 +131,7 @@ export default function Hero() {
             </a>
             <a
               href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
+              aria-label="Contact via Email"
               onClick={() => {
                 // GTM Event Tracking
                 window.dataLayer = window.dataLayer || [];

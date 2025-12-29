@@ -168,6 +168,7 @@ export default function CaseStudy() {
               {/* CTA */}
               <a
                 href="mailto:new@vectorfastprint.com?subject=Portfolio%20Request"
+                aria-label="Contact via Email"
               >
                 <Button 
                   size="lg"

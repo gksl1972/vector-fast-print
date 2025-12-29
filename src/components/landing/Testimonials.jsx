@@ -145,21 +145,23 @@ export default function Testimonials() {
             {/* Navigation */}
             <div className="absolute bottom-8 right-8 flex items-center gap-3">
               <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => navigate('prev')}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => navigate('next')}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </Button>
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate('prev')}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate('next')}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
             </div>
           </div>
 
@@ -177,6 +179,7 @@ export default function Testimonials() {
                     ? 'bg-sky-500 w-8' 
                     : 'bg-slate-300 hover:bg-slate-400'
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>

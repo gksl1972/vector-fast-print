@@ -92,12 +92,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-emerald-600 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-colors"
+                aria-label="WhatsApp contact"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
               <a
                 href="mailto:new@vectorfastprint.com"
                 className="w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition-colors"
+                aria-label="Email contact"
               >
                 <Mail className="w-5 h-5" />
               </a>
