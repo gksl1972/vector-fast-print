@@ -143,6 +143,7 @@ export default function HowItWorks() {
                 <img
                   src={DELIVERY_CAR_URL}
                   alt="Vector Fast Print Delivery Vehicle"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl"
                 />
               </div>
