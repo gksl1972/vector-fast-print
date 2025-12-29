@@ -71,6 +71,7 @@ export default function CaseStudy() {
                     key={index}
                     src={image}
                     alt={`Imperial Tobacco Project ${index + 1}`}
+                    loading="lazy"
                     initial={{ opacity: 0 }}
                     animate={{ 
                       opacity: currentImageIndex === index ? 1 : 0,
@@ -98,6 +99,7 @@ export default function CaseStudy() {
                     <img
                       src={image}
                       alt={`Thumbnail ${index + 1}`}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </button>
