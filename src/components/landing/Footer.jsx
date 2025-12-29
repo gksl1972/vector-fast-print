@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle, Mail, MapPin, Phone, Clock } from 'lucide-react';
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/1c82d6f69_VFP2026Logo-1.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/244316403_VFP2026Logo-1.png";
 
 const services = [
   'Digital Printing',
