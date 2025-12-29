@@ -62,12 +62,16 @@ export default function SEO() {
     
     // ========== TRACKING CODES START ==========
     
-    // Google Tag Manager - GTM-NFNFBZZV (Deferred to end of body)
+    // Google Tag Manager & Analytics - Deferred until user interaction or 3s delay
     if (!window.dataLayer) {
       window.dataLayer = window.dataLayer || [];
+      let trackingLoaded = false;
       
-      // Defer GTM loading until after page load
-      const loadGTM = () => {
+      const loadTracking = () => {
+        if (trackingLoaded) return;
+        trackingLoaded = true;
+        
+        // Load GTM
         const gtmScript = document.createElement('script');
         gtmScript.async = true;
         gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -81,31 +85,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const noscript = document.createElement('noscript');
         noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
         document.body.appendChild(noscript);
+        
+        // Load Google Analytics
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XKDCLZTCW6';
+        document.head.appendChild(gaScript);
+        
+        const gaConfigScript = document.createElement('script');
+        gaConfigScript.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XKDCLZTCW6');
+        `;
+        document.head.appendChild(gaConfigScript);
       };
       
-      // Load after page is ready
-      if (document.readyState === 'complete') {
-        loadGTM();
-      } else {
-        window.addEventListener('load', loadGTM);
-      }
-    }
-    
-    // Google Analytics 4 - G-XKDCLZTCW6
-    if (!document.querySelector('script[src*="gtag/js"]')) {
-      const gaScript = document.createElement('script');
-      gaScript.async = true;
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XKDCLZTCW6';
-      document.head.appendChild(gaScript);
+      // Load on user interaction (scroll, click, mousemove, touchstart)
+      const interactionEvents = ['scroll', 'click', 'mousemove', 'touchstart', 'keydown'];
+      const loadOnInteraction = () => {
+        loadTracking();
+        interactionEvents.forEach(event => {
+          window.removeEventListener(event, loadOnInteraction);
+        });
+      };
       
-      const gaConfigScript = document.createElement('script');
-      gaConfigScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XKDCLZTCW6');
-      `;
-      document.head.appendChild(gaConfigScript);
+      interactionEvents.forEach(event => {
+        window.addEventListener(event, loadOnInteraction, { once: true, passive: true });
+      });
+      
+      // Fallback: Load after 3 seconds if no interaction
+      setTimeout(() => {
+        if (!trackingLoaded) loadTracking();
+      }, 3000);
     }
     
     // Facebook Pixel (Optional) - USER MUST REPLACE YOUR_PIXEL_ID_HERE
