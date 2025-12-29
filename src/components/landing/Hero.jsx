@@ -22,6 +22,7 @@ export default function Hero() {
             alt="Vector Fast Print Production"
             width="1920"
             height="1080"
+            loading="eager"
             fetchpriority="high"
             className="w-full h-full object-cover opacity-60"
           />
