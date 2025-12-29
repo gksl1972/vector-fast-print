@@ -20,6 +20,9 @@ export default function Footer() {
             <img 
               src={LOGO_URL} 
               alt="Vector Fast Print" 
+              width="180"
+              height="56"
+              loading="lazy"
               className="h-14 w-auto mb-6"
             />
             <p className="text-slate-600 mb-6 leading-relaxed">

@@ -52,6 +52,8 @@ export default function Header() {
               <img 
                 src={LOGO_URL} 
                 alt="Vector Fast Print" 
+                width="180"
+                height="56"
                 className="h-12 sm:h-14 w-auto"
               />
             </a>
@@ -89,6 +91,8 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg text-slate-700"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

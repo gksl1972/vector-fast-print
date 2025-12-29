@@ -20,6 +20,9 @@ export default function Hero() {
           <img
             src={HERO_BG_URL}
             alt="Vector Fast Print Production"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
             className="w-full h-full object-cover opacity-60"
           />
         </div>

@@ -71,6 +71,8 @@ export default function CaseStudy() {
                     key={index}
                     src={image}
                     alt={`Imperial Tobacco Project ${index + 1}`}
+                    width="800"
+                    height="600"
                     loading="lazy"
                     initial={{ opacity: 0 }}
                     animate={{ 
@@ -95,10 +97,13 @@ export default function CaseStudy() {
                         ? 'border-white scale-110' 
                         : 'border-white/30 opacity-70 hover:opacity-100'
                     }`}
+                    aria-label={`View image ${index + 1}`}
                   >
                     <img
                       src={image}
                       alt={`Thumbnail ${index + 1}`}
+                      width="64"
+                      height="64"
                       loading="lazy"
                       className="w-full h-full object-cover"
                     />
