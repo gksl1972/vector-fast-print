@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail, CheckCircle, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/8bb0eadbf_image_5.jpg";
+const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/707c9bbb6_image_5.jpg";
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
