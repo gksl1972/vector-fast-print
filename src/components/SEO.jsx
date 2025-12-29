@@ -79,11 +79,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.body.insertBefore(noscript, document.body.firstChild);
     }
     
-    // Google Analytics 4 - USER MUST REPLACE G-XXXXXXXXXX
+    // Google Analytics 4 - G-XKDCLZTCW6
     if (!document.querySelector('script[src*="gtag/js"]')) {
       const gaScript = document.createElement('script');
       gaScript.async = true;
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XKDCLZTCW6';
       document.head.appendChild(gaScript);
       
       const gaConfigScript = document.createElement('script');
@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        gtag('config', 'G-XKDCLZTCW6');
       `;
       document.head.appendChild(gaConfigScript);
     }
