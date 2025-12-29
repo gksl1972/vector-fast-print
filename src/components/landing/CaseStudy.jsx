@@ -4,12 +4,12 @@ import { CheckCircle, ArrowRight, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const imperialTobaccoImages = [
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/5af8f9331_image_1.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/dc0ce9bd7_image_2.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/c3506eb95_image_6.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/5a3895f73_image_7.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/66e85c0fd_image_8.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/db5b79554_image_9.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/b55eebc4b_portfolio1-v3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/f4fc3b400_portfolio2-v3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/83baf2fae_portfolio4-v3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/d9556bef8_portfolio5-v3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/6e6d7fab7_portfolio6-v3.jpg",
+  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/aafa01d7a_portfolio7-v3.jpg",
 ];
 
 const solutionPoints = [
