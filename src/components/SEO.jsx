@@ -2,6 +2,28 @@ import React from 'react';
 
 export default function SEO() {
   React.useEffect(() => {
+    // Inline Critical CSS for above-the-fold content
+    if (!document.getElementById('critical-css')) {
+      const criticalStyle = document.createElement('style');
+      criticalStyle.id = 'critical-css';
+      criticalStyle.textContent = `
+        *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+        html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+        body{margin:0;line-height:inherit;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+        .min-h-screen{min-height:100vh}.flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}
+        .bg-slate-900{background-color:rgb(15 23 42)}.text-white{color:#fff}
+        .relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}
+        .overflow-hidden{overflow:hidden}.opacity-60{opacity:.6}
+        .object-cover{object-fit:cover}.w-full{width:100%}.h-full{height:100%}
+        .max-w-7xl{max-width:80rem}.mx-auto{margin-left:auto;margin-right:auto}
+        .px-4{padding-left:1rem;padding-right:1rem}.py-32{padding-top:8rem;padding-bottom:8rem}
+        .text-4xl{font-size:2.25rem;line-height:2.5rem}.font-bold{font-weight:700}
+        .bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}
+        .from-orange-500{--tw-gradient-from:#f97316}.to-blue-600{--tw-gradient-to:#2563eb}
+      `;
+      document.head.insertBefore(criticalStyle, document.head.firstChild);
+    }
+    
     // Set page title
     document.title = 'Vector Fast Print Istanbul | Same-Day Digital Printing & Exhibition Services';
     
