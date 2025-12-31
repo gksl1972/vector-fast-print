@@ -86,3 +86,24 @@
     @apply bg-background text-foreground;
   }
 }
+/* --- PERFORMANS VE SABİTLEME YAMASI (REVISED) --- */
+
+/* 1. CLS (Zıplama) Önleyici */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+}
+
+/* 2. Hero Görseli Titremesini Engelle */
+/* Sadece Hero görseline odaklanıyoruz */
+img[alt*="Production"], img[fetchpriority="high"] {
+   object-fit: cover;
+   min-height: 100%; 
+   width: 100%;
+   /* GPU Hızlandırma SADECE buraya eklendi, genele değil */
+   will-change: transform, opacity; 
+}
+
+/* 3. GPU Hızlandırma (GENEL TANIM SİLİNDİ) */
+/* NOT: .transition-all vb. sınıflara global will-change vermek yanlıştır. */
