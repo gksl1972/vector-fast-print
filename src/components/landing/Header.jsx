@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/473a7a340_logo-v3-final.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/343d555f5_logo-v4-final.png";
 
 const navItems = [
   { label: 'Services', href: '#services' },
