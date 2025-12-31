@@ -24,6 +24,39 @@ export default function SEO() {
       document.head.insertBefore(criticalStyle, document.head.firstChild);
     }
     
+    // Defer main CSS bundle to prevent render-blocking
+    const deferCSS = () => {
+      const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+      cssLinks.forEach(link => {
+        if (link.href.includes('/assets/') && link.href.includes('.css')) {
+          // Convert to preload and then to stylesheet
+          const preloadLink = document.createElement('link');
+          preloadLink.rel = 'preload';
+          preloadLink.as = 'style';
+          preloadLink.href = link.href;
+          preloadLink.onload = function() {
+            this.onload = null;
+            this.rel = 'stylesheet';
+          };
+          
+          // Add noscript fallback
+          const noscript = document.createElement('noscript');
+          const fallbackLink = document.createElement('link');
+          fallbackLink.rel = 'stylesheet';
+          fallbackLink.href = link.href;
+          noscript.appendChild(fallbackLink);
+          
+          link.parentNode.replaceChild(preloadLink, link);
+          document.head.appendChild(noscript);
+        }
+      });
+    };
+    
+    // Run CSS deferral immediately
+    deferCSS();
+    // Also run after a tiny delay to catch dynamically added stylesheets
+    setTimeout(deferCSS, 0);
+    
     // Set page title
     document.title = 'Vector Fast Print Istanbul | Same-Day Digital Printing & Exhibition Services';
     
