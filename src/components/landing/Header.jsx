@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/343d555f5_logo-v4-final.png";
+const LOGO_URL = "/logo-v4-final.png";
 
 const navItems = [
   { label: 'Services', href: '#services' },
@@ -54,6 +54,7 @@ export default function Header() {
                 alt="Vector Fast Print" 
                 width="180"
                 height="56"
+                fetchPriority="high"
                 className="h-12 sm:h-14 w-auto"
               />
             </a>
