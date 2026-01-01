@@ -100,8 +100,17 @@ export default function SEO() {
     }
     canonical.setAttribute('href', 'https://vectorfastprint.com');
     
+    // Remove any old hero image preload links to prevent double-fetch
+    const oldPreloads = document.querySelectorAll('link[rel="preload"][as="image"]');
+    oldPreloads.forEach(link => {
+      if (link.href.includes('hero-v4-final.jpg')) {
+        link.remove();
+      }
+    });
+    
     // Preconnect for performance
     const preconnectUrls = [
+      'https://qtrypzzcjebvfcihiynt.supabase.co',
       'https://www.googletagmanager.com',
       'https://www.google-analytics.com'
     ];
@@ -114,6 +123,22 @@ export default function SEO() {
         document.head.appendChild(link);
       }
     });
+    
+    // Add preload for the responsive hero image (LCP)
+    if (!document.querySelector('link[rel="preload"][imagesrcset]')) {
+      const heroPreload = document.createElement('link');
+      heroPreload.rel = 'preload';
+      heroPreload.as = 'image';
+      heroPreload.setAttribute('imagesrcset', 
+        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/9e80287bc_hero-v4-640w.jpg 640w, ' +
+        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/a2d028643_hero-v4-960w.jpg 960w, ' +
+        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/4319e3bb0_hero-v4-1280w.jpg 1280w, ' +
+        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/7b01ec2a4_hero-v4-1920w.jpg 1920w'
+      );
+      heroPreload.setAttribute('imagesizes', '100vw');
+      heroPreload.setAttribute('fetchpriority', 'high');
+      document.head.appendChild(heroPreload);
+    }
     
     // ========== TRACKING CODES START ==========
     
