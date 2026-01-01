@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const LOGO_BASE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57";
-const LOGO_URL = `${LOGO_BASE}/343d555f5_logo-v4-final.png`;
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/343d555f5_logo-v4-final.png";
 
 const navItems = [
   { label: 'Services', href: '#services' },
@@ -50,22 +49,13 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#" className="flex-shrink-0">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcSet={`${LOGO_BASE}/logo-v4-180w.webp 180w, ${LOGO_BASE}/logo-v4-360w.webp 360w`}
-                  sizes="180px"
-                />
-                <img 
-                  src={LOGO_URL}
-                  srcSet={`${LOGO_BASE}/logo-v4-180w.png 180w, ${LOGO_BASE}/logo-v4-360w.png 360w`}
-                  sizes="180px"
-                  alt="Vector Fast Print" 
-                  width="180"
-                  height="56"
-                  className="h-12 sm:h-14 w-auto"
-                />
-              </picture>
+              <img 
+                src={LOGO_URL} 
+                alt="Vector Fast Print" 
+                width="180"
+                height="56"
+                className="h-12 sm:h-14 w-auto"
+              />
             </a>
 
             {/* Desktop Navigation */}

@@ -4,12 +4,13 @@ import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const HERO_BG_BASE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57";
-
-// Generate responsive image URLs with format transformation
-const generateSrcSet = (format) => {
-  const widths = [640, 960, 1280, 1920];
-  return widths.map(w => `${HERO_BG_BASE}/hero-v4-${w}w.${format} ${w}w`).join(', ');
-};
+const HERO_BG_URL = `${HERO_BG_BASE}/7b01ec2a4_hero-v4-1920w.jpg`;
+const HERO_BG_SRCSET = `
+  ${HERO_BG_BASE}/9e80287bc_hero-v4-640w.jpg 640w,
+  ${HERO_BG_BASE}/a2d028643_hero-v4-960w.jpg 960w,
+  ${HERO_BG_BASE}/4319e3bb0_hero-v4-1280w.jpg 1280w,
+  ${HERO_BG_BASE}/7b01ec2a4_hero-v4-1920w.jpg 1920w
+`.trim();
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -27,30 +28,19 @@ export default function Hero() {
         {/* Background Layer */}
         <div className="absolute inset-0 bg-slate-900 z-0">
           <div className="absolute inset-0 overflow-hidden">
-            <picture>
-              <source
-                type="image/avif"
-                srcSet={generateSrcSet('avif')}
-                sizes="100vw"
-              />
-              <source
-                type="image/webp"
-                srcSet={generateSrcSet('webp')}
-                sizes="100vw"
-              />
-              <img
-                src={`${HERO_BG_BASE}/7b01ec2a4_hero-v4-1920w.jpg`}
-                srcSet={`${HERO_BG_BASE}/9e80287bc_hero-v4-640w.jpg 640w, ${HERO_BG_BASE}/a2d028643_hero-v4-960w.jpg 960w, ${HERO_BG_BASE}/4319e3bb0_hero-v4-1280w.jpg 1280w, ${HERO_BG_BASE}/7b01ec2a4_hero-v4-1920w.jpg 1920w`}
-                sizes="100vw"
-                alt="Vector Fast Print Production"
-                width="1920"
-                height="1080"
-                loading="eager"
-                decoding="async"
-                fetchpriority="high"
-                className="w-full h-full object-cover opacity-60"
-              />
-            </picture>
+            <img
+              src={HERO_BG_URL}
+              srcSet={HERO_BG_SRCSET}
+              sizes="100vw"
+              alt="Vector Fast Print Production"
+              // CLS için width/height zorunludur.
+              width="1920"
+              height="1080"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              className="w-full h-full object-cover opacity-60"
+            />
           </div>
           {/* Gradients */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/40 to-slate-900/50" />

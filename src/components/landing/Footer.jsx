@@ -1,8 +1,7 @@
 import React from 'react';
 import { MessageCircle, Mail, MapPin, Phone, Clock } from 'lucide-react';
 
-const LOGO_BASE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57";
-const LOGO_URL = `${LOGO_BASE}/343d555f5_logo-v4-final.png`;
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/343d555f5_logo-v4-final.png";
 
 const services = [
   'Digital Printing',
@@ -18,23 +17,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Company Info */}
           <div>
-            <picture>
-              <source
-                type="image/webp"
-                srcSet={`${LOGO_BASE}/logo-v4-180w.webp 180w, ${LOGO_BASE}/logo-v4-360w.webp 360w`}
-                sizes="180px"
-              />
-              <img 
-                src={LOGO_URL}
-                srcSet={`${LOGO_BASE}/logo-v4-180w.png 180w, ${LOGO_BASE}/logo-v4-360w.png 360w`}
-                sizes="180px"
-                alt="Vector Fast Print" 
-                width="180"
-                height="56"
-                loading="lazy"
-                className="h-14 w-auto mb-6"
-              />
-            </picture>
+            <img 
+              src={LOGO_URL} 
+              alt="Vector Fast Print" 
+              width="180"
+              height="56"
+              loading="lazy"
+              className="h-14 w-auto mb-6"
+            />
             <p className="text-slate-600 mb-6 leading-relaxed">
               Your trusted partner for exhibition and event solutions in Istanbul. Serving international clients since 2014.
             </p>
