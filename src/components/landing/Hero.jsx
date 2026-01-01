@@ -31,6 +31,7 @@ export default function Hero() {
               height="1080"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover opacity-60"
             />
           </div>

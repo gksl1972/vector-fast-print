@@ -54,7 +54,7 @@ export default function Header() {
                 alt="Vector Fast Print" 
                 width="180"
                 height="56"
-                loading="eager"
+                fetchPriority="high"
                 className="h-12 sm:h-14 w-auto"
               />
             </a>
