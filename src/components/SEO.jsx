@@ -2,27 +2,6 @@ import React from 'react';
 
 export default function SEO() {
   React.useEffect(() => {
-    // Preload and optimize font loading with display=swap
-    if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
-      // Preconnect to Google Fonts
-      const preconnect1 = document.createElement('link');
-      preconnect1.rel = 'preconnect';
-      preconnect1.href = 'https://fonts.googleapis.com';
-      document.head.appendChild(preconnect1);
-
-      const preconnect2 = document.createElement('link');
-      preconnect2.rel = 'preconnect';
-      preconnect2.href = 'https://fonts.gstatic.com';
-      preconnect2.crossOrigin = 'anonymous';
-      document.head.appendChild(preconnect2);
-
-      // Load fonts with display=swap for immediate text visibility
-      const fontLink = document.createElement('link');
-      fontLink.rel = 'stylesheet';
-      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
-      document.head.appendChild(fontLink);
-    }
-
     // Inline Critical CSS for above-the-fold content
     if (!document.getElementById('critical-css')) {
       const criticalStyle = document.createElement('style');
@@ -121,8 +100,20 @@ export default function SEO() {
     }
     canonical.setAttribute('href', 'https://vectorfastprint.com');
     
-    // Remove GTM preconnects to prevent early loading
-    // GTM will be loaded on user interaction only
+    // Preconnect for performance
+    const preconnectUrls = [
+      'https://www.googletagmanager.com',
+      'https://www.google-analytics.com'
+    ];
+    
+    preconnectUrls.forEach(url => {
+      if (!document.querySelector(`link[href="${url}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = url;
+        document.head.appendChild(link);
+      }
+    });
     
     // Add preload for the responsive hero image (LCP) - using local files
     if (!document.querySelector('link[rel="preload"][imagesrcset]')) {
@@ -137,56 +128,46 @@ export default function SEO() {
     
     // ========== TRACKING CODES START ==========
     
-    // Google Tag Manager & Analytics - Deferred until user interaction or 5s delay (increased from 3s)
+    // Google Tag Manager & Analytics - Deferred until user interaction or 3s delay
     if (!window.dataLayer) {
       window.dataLayer = window.dataLayer || [];
       let trackingLoaded = false;
-
+      
       const loadTracking = () => {
         if (trackingLoaded) return;
         trackingLoaded = true;
-
-        // Use requestIdleCallback for non-blocking load
-        const actualLoad = () => {
-          // Load GTM
-          const gtmScript = document.createElement('script');
-          gtmScript.async = true;
-          gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NFNFBZZV');`;
-          document.body.appendChild(gtmScript);
-
-          // GTM noscript
-          const noscript = document.createElement('noscript');
-          noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
-          document.body.appendChild(noscript);
-
-          // Load Google Analytics
-          const gaScript = document.createElement('script');
-          gaScript.async = true;
-          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XKDCLZTCW6';
-          document.head.appendChild(gaScript);
-
-          const gaConfigScript = document.createElement('script');
-          gaConfigScript.innerHTML = `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XKDCLZTCW6');
-          `;
-          document.head.appendChild(gaConfigScript);
-        };
-
-        // Use requestIdleCallback if available, otherwise setTimeout
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(actualLoad, { timeout: 2000 });
-        } else {
-          setTimeout(actualLoad, 0);
-        }
+        
+        // Load GTM
+        const gtmScript = document.createElement('script');
+        gtmScript.async = true;
+        gtmScript.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NFNFBZZV');`;
+        document.body.appendChild(gtmScript);
+        
+        // GTM noscript
+        const noscript = document.createElement('noscript');
+        noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
+        document.body.appendChild(noscript);
+        
+        // Load Google Analytics
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XKDCLZTCW6';
+        document.head.appendChild(gaScript);
+        
+        const gaConfigScript = document.createElement('script');
+        gaConfigScript.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XKDCLZTCW6');
+        `;
+        document.head.appendChild(gaConfigScript);
       };
-
+      
       // Load on user interaction (scroll, click, mousemove, touchstart)
       const interactionEvents = ['scroll', 'click', 'mousemove', 'touchstart', 'keydown'];
       const loadOnInteraction = () => {
@@ -195,15 +176,15 @@ export default function SEO() {
           window.removeEventListener(event, loadOnInteraction);
         });
       };
-
+      
       interactionEvents.forEach(event => {
         window.addEventListener(event, loadOnInteraction, { once: true, passive: true });
       });
-
-      // Fallback: Load after 5 seconds if no interaction (increased to not block LCP)
+      
+      // Fallback: Load after 3 seconds if no interaction
       setTimeout(() => {
         if (!trackingLoaded) loadTracking();
-      }, 5000);
+      }, 3000);
     }
     
     // Facebook Pixel (Optional) - USER MUST REPLACE YOUR_PIXEL_ID_HERE
