@@ -120,7 +120,7 @@ export default function SEO() {
       const heroPreload = document.createElement('link');
       heroPreload.rel = 'preload';
       heroPreload.as = 'image';
-      heroPreload.setAttribute('imagesrcset', '/hero-v4-640w.jpg 640w, /hero-v4-960w.jpg 960w, /hero-v4-1280w.jpg 1280w, /hero-v4-1920w.jpg 1920w');
+      heroPreload.setAttribute('imagesrcset', '/hero-v4-640w.webp 640w, /hero-v4-960w.webp 960w, /hero-v4-1280w.webp 1280w, /hero-v4-1920w.webp 1920w');
       heroPreload.setAttribute('imagesizes', '100vw');
       heroPreload.setAttribute('fetchpriority', 'high');
       document.head.appendChild(heroPreload);
