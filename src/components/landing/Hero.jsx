@@ -32,7 +32,7 @@ export default function Hero() {
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              className="w-full h-full object-cover opacity-60"
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
             />
           </div>
           {/* Gradients */}
@@ -65,56 +65,31 @@ export default function Hero() {
           <div className="max-w-3xl mx-auto text-center">
             
             {/* Badge */}
-            <m.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
-            >
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               <span className="text-white/90 text-sm font-medium">24/7 English Support Available</span>
-            </m.div>
+            </div>
 
             {/* Main Headline */}
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
-            >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Your Trusted{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-violet-500 to-blue-600">
                 Digital Printing Partner
               </span>{' '}
               in Istanbul
-            </m.h1>
+            </h1>
 
             {/* Subheadline */}
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg sm:text-xl text-white font-medium mb-4"
-            >
+            <p className="text-lg sm:text-xl text-white font-medium mb-4">
               Same-Day Printing • 24/7 English Support • Free Delivery Across Istanbul
-            </m.p>
+            </p>
             
-            <m.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-base text-slate-200 mb-10"
-            >
+            <p className="text-base text-slate-200 mb-10">
               Business cards, banners, brochures, exhibition graphics—plus full event management when you need it.
-            </m.p>
+            </p>
 
             {/* CTA Buttons */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
-            >
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
               <a
                 href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.%0A%0ADetails%3A%0A-%20Service%3A%20%0A-%20Deadline%3A%20%0A-%20Location%3A%20%0A%0AThanks!"
                 target="_blank"
@@ -158,15 +133,10 @@ export default function Hero() {
                   Email Us
                 </Button>
               </a>
-            </m.div>
+            </div>
 
             {/* Trust Badges */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-6"
-            >
+            <div className="flex flex-wrap justify-center gap-6">
               {trustBadges.map((badge, index) => (
                 <div 
                   key={index}
@@ -178,7 +148,7 @@ export default function Hero() {
                   <span className="text-sm font-medium">{badge.text}</span>
                 </div>
               ))}
-            </m.div>
+            </div>
           </div>
         </div>
 
