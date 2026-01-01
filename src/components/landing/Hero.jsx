@@ -3,7 +3,14 @@ import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const HERO_BG_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/f66200a55_hero-v4-final.jpg";
+const HERO_BG_BASE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57";
+const HERO_BG_URL = `${HERO_BG_BASE}/f66200a55_hero-v4-final.jpg`;
+const HERO_BG_SRCSET = `
+  ${HERO_BG_BASE}/hero-v4-640w.jpg 640w,
+  ${HERO_BG_BASE}/hero-v4-960w.jpg 960w,
+  ${HERO_BG_BASE}/hero-v4-1280w.jpg 1280w,
+  ${HERO_BG_BASE}/hero-v4-1920w.jpg 1920w
+`.trim();
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -23,6 +30,8 @@ export default function Hero() {
           <div className="absolute inset-0 overflow-hidden">
             <img
               src={HERO_BG_URL}
+              srcSet={HERO_BG_SRCSET}
+              sizes="100vw"
               alt="Vector Fast Print Production"
               // CLS için width/height zorunludur.
               width="1920"
