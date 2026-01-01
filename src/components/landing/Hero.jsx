@@ -27,12 +27,11 @@ export default function Hero() {
               srcSet={HERO_BG_SRCSET}
               sizes="100vw"
               alt="Vector Fast Print Production"
-              // CLS için width/height zorunludur.
               width="1920"
               height="1080"
               loading="eager"
               decoding="async"
-              fetchpriority="high"
+              fetchPriority="high"
               className="w-full h-full object-cover opacity-60"
             />
           </div>
