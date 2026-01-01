@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, FileCheck, Truck } from 'lucide-react';
 
-const DELIVERY_CAR_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/090bd62d0_deliverycar-v3.jpg";
+const DELIVERY_CAR_URL = "/deliverycar-v3.webp";
 
 const steps = [
   {

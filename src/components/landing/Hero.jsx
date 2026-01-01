@@ -3,8 +3,8 @@ import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const HERO_BG_URL = "/hero-v4-1920w.jpg";
-const HERO_BG_SRCSET = "/hero-v4-640w.jpg 640w, /hero-v4-960w.jpg 960w, /hero-v4-1280w.jpg 1280w, /hero-v4-1920w.jpg 1920w";
+const HERO_BG_URL = "/hero-v4-1280w.webp";
+const HERO_BG_SRCSET = "/hero-v4-640w.webp 640w, /hero-v4-960w.webp 960w, /hero-v4-1280w.webp 1280w, /hero-v4-1920w.webp 1920w";
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },

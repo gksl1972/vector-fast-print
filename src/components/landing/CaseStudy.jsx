@@ -4,12 +4,12 @@ import { CheckCircle, ArrowRight, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const imperialTobaccoImages = [
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/7be021e0b_portfolio1-v3.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/eab17fd2b_portfolio2-v3.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/7753f7848_portfolio4-v3.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/95291f616_portfolio5-v3.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/c240f9dcd_portfolio6-v3.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/694d35ec1d0796702e31ba57/33cb6323b_portfolio7-v3.jpg",
+  "/portfolio1-v3.webp",
+  "/portfolio2-v3.webp",
+  "/portfolio4-v3.webp",
+  "/portfolio5-v3.webp",
+  "/portfolio6-v3.webp",
+  "/portfolio7-v3.webp",
 ];
 
 const solutionPoints = [

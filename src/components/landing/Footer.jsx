@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle, Mail, MapPin, Phone, Clock } from 'lucide-react';
 
-const LOGO_URL = "/logo-v4-final.png";
+const LOGO_URL = "/logo-v4-final.webp";
 
 const services = [
   'Digital Printing',

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const LOGO_URL = "/logo-v4-final.png";
+const LOGO_URL = "/logo-v4-final.webp";
 
 const navItems = [
   { label: 'Services', href: '#services' },
