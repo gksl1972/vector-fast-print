@@ -30,7 +30,7 @@ export default function Hero() {
               width="1920"
               height="1080"
               loading="eager"
-              decoding="sync"
+              decoding="async"
               fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover opacity-60"
             />

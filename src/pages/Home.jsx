@@ -1,17 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import Header from '@/components/landing/Header';
 import Hero from '@/components/landing/Hero';
+import Services from '@/components/landing/Services';
+import WhyChooseUs from '@/components/landing/WhyChooseUs';
+import HowItWorks from '@/components/landing/HowItWorks';
+import CaseStudy from '@/components/landing/CaseStudy';
+import Testimonials from '@/components/landing/Testimonials';
+import FinalCTA from '@/components/landing/FinalCTA';
+import Footer from '@/components/landing/Footer';
+import BackToTop from '@/components/landing/BackToTop';
 import SEO from '@/components/SEO';
-
-// Lazy load below-the-fold components to reduce initial bundle size
-const Services = lazy(() => import('@/components/landing/Services'));
-const WhyChooseUs = lazy(() => import('@/components/landing/WhyChooseUs'));
-const HowItWorks = lazy(() => import('@/components/landing/HowItWorks'));
-const CaseStudy = lazy(() => import('@/components/landing/CaseStudy'));
-const Testimonials = lazy(() => import('@/components/landing/Testimonials'));
-const FinalCTA = lazy(() => import('@/components/landing/FinalCTA'));
-const Footer = lazy(() => import('@/components/landing/Footer'));
-const BackToTop = lazy(() => import('@/components/landing/BackToTop'));
 
 export default function Home() {
   return (
@@ -20,19 +18,15 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Suspense fallback={<div className="min-h-screen" />}>
-          <Services />
-          <WhyChooseUs />
-          <HowItWorks />
-          <CaseStudy />
-          <Testimonials />
-          <FinalCTA />
-        </Suspense>
+        <Services />
+        <WhyChooseUs />
+        <HowItWorks />
+        <CaseStudy />
+        <Testimonials />
+        <FinalCTA />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-        <BackToTop />
-      </Suspense>
+      <Footer />
+      <BackToTop />
     </div>
   );
 }
