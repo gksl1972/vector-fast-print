@@ -3,57 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { 
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: #0f172a;
-        color: #fff;
-      }
-      #app-shell {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      }
-      #shell-content {
-        text-align: center;
-        padding: 2rem;
-        max-width: 1200px;
-      }
-      #shell-logo {
-        height: 3rem;
-        margin: 0 auto 2rem;
-        display: block;
-      }
-      #shell-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-      }
-      #shell-subtitle {
-        font-size: 1.125rem;
-        color: #cbd5e1;
-        margin-bottom: 0.5rem;
-      }
-      #shell-desc {
-        font-size: 1rem;
-        color: #94a3b8;
-      }
-      @media (max-width: 640px) {
-        #shell-title { font-size: 1.75rem; }
-        #shell-subtitle { font-size: 1rem; }
-      }
-    </style>
-    
     <link rel="preload" as="image" href="/hero-v4-1280w.webp" fetchpriority="high">
     
     <link rel="preload" as="image" href="/logo-v4-final.webp">
 
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    
     <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-NFNFBZZV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -61,8 +14,9 @@
       gtag('js', new Date());
       gtag('config', 'GTM-NFNFBZZV');
     </script>
+
+    <link rel="icon" type="image/webp" href="/logo-v4-final.webp" />
     
-    <link rel="icon" type="image/svg+xml" href="/logo-v4-final.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
     
@@ -73,23 +27,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <div id="root">
-      <div id="app-shell">
-        <div id="shell-content">
-          <img 
-            id="shell-logo"
-            src="/logo-v4-final.webp" 
-            alt="Vector Fast Print"
-            width="180" 
-            height="56"
-          >
-          <h1 id="shell-title">Your Trusted Digital Printing Partner in Istanbul</h1>
-          <p id="shell-subtitle">Same-Day Printing • 24/7 English Support • Free Delivery Across Istanbul</p>
-          <p id="shell-desc">Business cards, banners, brochures, exhibition graphics—plus full event management when you need it.</p>
-        </div>
-      </div>
-    </div>
-    
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
