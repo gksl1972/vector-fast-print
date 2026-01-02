@@ -4,7 +4,7 @@ import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const HERO_BG_URL = "/hero-v4-1280w.webp";
-const HERO_BG_SRCSET = "/hero-v4-640w.webp 640w, /hero-v4-960w.webp 960w, /hero-v4-1280w.webp 1280w, /hero-v4-1920w.webp 1920w";
+// SİLİNDİ: const HERO_BG_SRCSET satırı kaldırıldı (Double Fetch engellendi).
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -24,8 +24,7 @@ export default function Hero() {
           <div className="absolute inset-0 overflow-hidden">
             <img
               src={HERO_BG_URL}
-              srcSet={HERO_BG_SRCSET}
-              sizes="100vw"
+              // SİLİNDİ: srcSet ve sizes kaldırıldı.
               alt="Vector Fast Print Production"
               width="1920"
               height="1080"
