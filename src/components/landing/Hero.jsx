@@ -4,7 +4,6 @@ import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const HERO_BG_URL = "/hero-v4-1280w.webp";
-// SİLİNDİ: const HERO_BG_SRCSET satırı kaldırıldı (Double Fetch engellendi).
 
 const trustBadges = [
   { icon: Zap, text: 'Response within 3 minutes' },
@@ -14,46 +13,44 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    // LazyMotion: Gereksiz fizik motorunu yüklemez, JS boyutunu düşürür.
-    <LazyMotion features={domAnimation}>
-      {/* min-h-[100dvh]: Mobilde adres çubuğu zıplamasını engeller (CLS Fix) */}
-      <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+    // DÜZELTME: <section> artık LazyMotion'ın dışında. 
+    // Böylece resim, animasyon kütüphanesinin yüklenmesini beklemeden ANINDA görünür.
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
         
-        {/* Background Layer */}
-        <div className="absolute inset-0 bg-slate-900 z-0">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={HERO_BG_URL}
-              // SİLİNDİ: srcSet ve sizes kaldırıldı.
-              alt="Vector Fast Print Production"
-              width="1920"
-              height="1080"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
-          </div>
-          {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/40 to-slate-900/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/30" />
+      {/* 1. KATMAN: ARKA PLAN RESMİ (Hemen Yüklenir - LCP Dostu) */}
+      <div className="absolute inset-0 bg-slate-900 z-0">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={HERO_BG_URL}
+            alt="Vector Fast Print Production"
+            width="1920"
+            height="1080"
+            // fetchPriority ve loading HTML preload ile uyumlu
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync" 
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
         </div>
+        {/* Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/40 to-slate-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/30" />
+      </div>
 
-        {/* Animated Background Elements - Optimized with 'm' component */}
+      {/* 2. KATMAN: ANİMASYONLU İÇERİKLER (LazyMotion Sadece Burayı Saracak) */}
+      <LazyMotion features={domAnimation}>
+        
+        {/* Animated Background Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <m.div
-            animate={{ 
-              x: [0, 100, 0],
-              y: [0, -50, 0],
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, x: [0, 100, 0], y: [0, -50, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute top-20 right-20 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl will-change-transform"
           />
           <m.div
-            animate={{ 
-              x: [0, -80, 0],
-              y: [0, 60, 0],
-            }}
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1, x: [0, -80, 0], y: [0, 60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             className="absolute bottom-20 left-20 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl will-change-transform"
           />
@@ -94,14 +91,6 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contact via WhatsApp"
-                onClick={() => {
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({
-                    'event': 'whatsapp_click',
-                    'button_location': 'hero',
-                    'button_text': 'WhatsApp Quote'
-                  });
-                }}
               >
                 <Button 
                   size="lg"
@@ -114,14 +103,6 @@ export default function Hero() {
               <a
                 href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
                 aria-label="Contact via Email"
-                onClick={() => {
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({
-                    'event': 'email_click',
-                    'button_location': 'hero',
-                    'button_text': 'Email Us'
-                  });
-                }}
               >
                 <Button 
                   size="lg"
@@ -137,10 +118,7 @@ export default function Hero() {
             {/* Trust Badges */}
             <div className="flex flex-wrap justify-center gap-6">
               {trustBadges.map((badge, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-2 text-white/80"
-                >
+                <div key={index} className="flex items-center gap-2 text-white/80">
                   <div className="w-5 h-5 rounded-full bg-gradient-to-r from-orange-500 via-violet-500 to-orange-500 flex items-center justify-center">
                     <badge.icon className="w-3.5 h-3.5 text-white" />
                   </div>
@@ -166,7 +144,7 @@ export default function Hero() {
             <div className="w-1.5 h-1.5 bg-white rounded-full" />
           </m.div>
         </m.div>
-      </section>
-    </LazyMotion>
+      </LazyMotion>
+    </section>
   );
 }
