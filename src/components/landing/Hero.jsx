@@ -24,7 +24,10 @@ export default function Hero() {
             src="/hero-v4-1280w.webp"
             alt="Vector Fast Print Production"
             width="1280"
-            height="720" 
+            height="720"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           />
         </div>
