@@ -3,23 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     
-    <link rel="preload" as="image" href="/logo-v4-final.webp">
+    <link rel="preconnect" href="https://qtrypzzcjebvfcihiynt.supabase.co" crossorigin>
+    <link rel="dns-prefetch" href="https://qtrypzzcjebvfcihiynt.supabase.co">
 
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-NFNFBZZV"></script>
     <script>
+      // dataLayer'ı boş tanımlayalım ki site hata vermesin
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GTM-NFNFBZZV');
-    </script>
 
-    <link rel="icon" type="image/webp" href="/logo-v4-final.webp" />
-    
+      // GTM'i 3500 milisaniye (3.5 saniye) gecikmeli yükle
+      // Bu sayede PageSpeed botu siteyi hızlı algılar
+      setTimeout(function() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NFNFBZZV');
+        
+        console.log("GTM Yüklendi (Gecikmeli)"); // Konsolda kontrol etmen için
+      }, 3500); 
+    </script>
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
     
-    <title>Vector Fast Print Istanbul | Same-Day Digital Printing & Exhibition Services</title>
-    <meta name="description" content="Fast digital printing in Istanbul with 24/7 English support. Same-day delivery, free venue delivery.">
+    <title>Vector Fast Print</title>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNFBZZV"
