@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-slate-900 z-0">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src={HERO_BG_URL}
+            src="/hero-v4-1280w.webp"
             alt="Vector Fast Print Production"
             width="1920"
             height="1080"
