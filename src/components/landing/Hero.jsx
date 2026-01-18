@@ -13,6 +13,17 @@ const trustBadges = [
 ];
 
 export default function Hero() {
+  const [showWhatsAppDialog, setShowWhatsAppDialog] = React.useState(false);
+
+  const handleWhatsAppClick = () => {
+    setShowWhatsAppDialog(true);
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.%0A%0ADetails%3A%0A-%20Service%3A%20%0A-%20Deadline%3A%20%0A-%20Location%3A%20%0A%0AThanks!', '_blank');
+    setShowWhatsAppDialog(false);
+  };
+
   return (
     // DÜZELTME: <section> artık LazyMotion'ın dışında. 
     // Böylece resim, animasyon kütüphanesinin yüklenmesini beklemeden ANINDA görünür.
@@ -86,20 +97,15 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-              <a
-                href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.%0A%0ADetails%3A%0A-%20Service%3A%20%0A-%20Deadline%3A%20%0A-%20Location%3A%20%0A%0AThanks!"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button 
+                size="lg"
+                onClick={handleWhatsAppClick}
                 aria-label="Contact via WhatsApp"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
               >
-                <Button 
-                  size="lg"
-                  className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-14 px-8 text-lg font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp Quote
-                </Button>
-              </a>
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp Quote
+              </Button>
               <a
                 href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
                 aria-label="Contact via Email"
@@ -145,6 +151,12 @@ export default function Hero() {
           </m.div>
         </m.div>
       </LazyMotion>
+
+      <WhatsAppConfirmDialog 
+        isOpen={showWhatsAppDialog}
+        onOpenChange={setShowWhatsAppDialog}
+        onConfirm={openWhatsApp}
+      />
     </section>
   );
 }

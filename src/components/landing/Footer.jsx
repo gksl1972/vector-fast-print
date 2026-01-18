@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Mail, MapPin, Phone, Clock } from 'lucide-react';
+import WhatsAppConfirmDialog from '../WhatsAppConfirmDialog';
 
 const LOGO_URL = "/logo-v4-final.webp";
 
@@ -11,6 +12,18 @@ const services = [
 ];
 
 export default function Footer() {
+  const [showWhatsAppDialog, setShowWhatsAppDialog] = React.useState(false);
+
+  const handleWhatsAppClick = (e) => {
+    e.preventDefault();
+    setShowWhatsAppDialog(true);
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/905331358890', '_blank');
+    setShowWhatsAppDialog(false);
+  };
+
   return (
     <footer className="bg-white text-slate-900 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -87,15 +100,13 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
-              <a
-                href="https://wa.me/905331358890"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleWhatsAppClick}
                 className="w-10 h-10 bg-emerald-600 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-colors"
                 aria-label="WhatsApp contact"
               >
-                <MessageCircle className="w-5 h-5" />
-              </a>
+                <MessageCircle className="w-5 h-5 text-white" />
+              </button>
               <a
                 href="mailto:new@vectorfastprint.com"
                 className="w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition-colors"
@@ -117,6 +128,12 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <WhatsAppConfirmDialog 
+        isOpen={showWhatsAppDialog}
+        onOpenChange={setShowWhatsAppDialog}
+        onConfirm={openWhatsApp}
+      />
     </footer>
   );
 }
