@@ -146,8 +146,7 @@ export default function HowItWorks() {
                   width="800"
                   height="600"
                   loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl"
                 />
               </div>
             </div>
