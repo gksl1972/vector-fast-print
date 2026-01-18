@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail, CheckCircle, Clock, Truck, DollarSign, Award } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import WhatsAppConfirmDialog from '../WhatsAppConfirmDialog';
 
 const trustPoints = [
   { icon: Clock, text: 'Available 24/7 for urgent requests' },
@@ -11,6 +12,24 @@ const trustPoints = [
 ];
 
 export default function FinalCTA() {
+  const [showWhatsAppDialog, setShowWhatsAppDialog] = React.useState(false);
+
+  const handleWhatsAppClick = () => {
+    // GTM Event Tracking
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'whatsapp_click',
+      'button_location': 'final_cta',
+      'button_text': 'Message on WhatsApp'
+    });
+    setShowWhatsAppDialog(true);
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.', '_blank');
+    setShowWhatsAppDialog(false);
+  };
+
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden" aria-label="Contact Us">
       {/* Background decoration */}
@@ -37,34 +56,18 @@ export default function FinalCTA() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <a
-              href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul."
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button 
+              size="lg"
+              onClick={handleWhatsAppClick}
               aria-label="Contact via WhatsApp"
-              onClick={() => {
-                // GTM Event Tracking
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                  'event': 'whatsapp_click',
-                  'button_location': 'final_cta',
-                  'button_text': 'Message on WhatsApp'
-                });
-                // Google Ads Conversion Tracking (uncomment and replace AW-XXXXXXXXX when ready)
-                // window.gtag && window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXX'});
-              }}
+              className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-16 px-10 text-lg font-semibold rounded-2xl shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
             >
-              <Button 
-                size="lg"
-                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white gap-3 h-16 px-10 text-lg font-semibold rounded-2xl shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
-              >
-                <MessageCircle className="w-6 h-6" />
-                <div className="text-left">
-                  <span className="block text-base">Message on WhatsApp</span>
-                  <span className="block text-sm font-normal opacity-90">+90 533 135 88 90</span>
-                </div>
-              </Button>
-            </a>
+              <MessageCircle className="w-6 h-6" />
+              <div className="text-left">
+                <span className="block text-base">Message on WhatsApp</span>
+                <span className="block text-sm font-normal opacity-90">+90 533 135 88 90</span>
+              </div>
+            </Button>
             <a
               href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
               aria-label="Contact via Email"
@@ -139,6 +142,12 @@ export default function FinalCTA() {
           </div>
         </motion.div>
       </div>
+
+      <WhatsAppConfirmDialog 
+        isOpen={showWhatsAppDialog}
+        onOpenChange={setShowWhatsAppDialog}
+        onConfirm={openWhatsApp}
+      />
     </section>
   );
 }
