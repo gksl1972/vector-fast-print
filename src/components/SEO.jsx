@@ -100,17 +100,33 @@ export default function SEO() {
     }
     canonical.setAttribute('href', 'https://vectorfastprint.com');
     
+    // Preload primary font with font-display: swap
+    if (!document.querySelector('link[rel="preload"][as="font"]')) {
+      const fontPreload = document.createElement('link');
+      fontPreload.rel = 'preload';
+      fontPreload.as = 'font';
+      fontPreload.type = 'font/woff2';
+      fontPreload.href = 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2';
+      fontPreload.crossOrigin = 'anonymous';
+      document.head.appendChild(fontPreload);
+    }
+
     // Preconnect for performance
     const preconnectUrls = [
+      'https://fonts.googleapis.com',
+      'https://fonts.gstatic.com',
       'https://www.googletagmanager.com',
       'https://www.google-analytics.com'
     ];
-    
+
     preconnectUrls.forEach(url => {
       if (!document.querySelector(`link[href="${url}"]`)) {
         const link = document.createElement('link');
         link.rel = 'preconnect';
         link.href = url;
+        if (url.includes('gstatic')) {
+          link.crossOrigin = 'anonymous';
+        }
         document.head.appendChild(link);
       }
     });

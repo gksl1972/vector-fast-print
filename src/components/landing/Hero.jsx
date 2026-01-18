@@ -31,7 +31,7 @@ export default function Hero() {
         
       {/* 1. KATMAN: ARKA PLAN RESMİ (Hemen Yüklenir - LCP Dostu) */}
       <div className="absolute inset-0 bg-slate-900 z-0">
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden" style={{ aspectRatio: '16/9' }}>
           <img
             src="/hero-v4-1280w.webp"
             alt="Vector Fast Print Production"
@@ -40,7 +40,8 @@ export default function Hero() {
             loading="eager"
             fetchpriority="high"
             decoding="sync"
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            className="absolute inset-0 opacity-60"
           />
         </div>
         {/* Gradients */}

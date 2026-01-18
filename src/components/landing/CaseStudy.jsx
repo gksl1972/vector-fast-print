@@ -79,7 +79,8 @@ export default function CaseStudy() {
                       scale: currentImageIndex === index ? 1.05 : 1
                     }}
                     transition={{ duration: 0.8 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="absolute inset-0"
                   />
                 ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
@@ -104,7 +105,7 @@ export default function CaseStudy() {
                       width="64"
                       height="64"
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                   </button>
                 ))}
