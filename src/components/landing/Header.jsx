@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import WhatsAppConfirmDialog from '../WhatsAppConfirmDialog';
 
 const LOGO_URL = "/logo-v4-final.webp";
 
@@ -17,6 +18,7 @@ const navItems = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showWhatsAppDialog, setShowWhatsAppDialog] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,15 @@ export default function Header() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleWhatsAppClick = () => {
+    setShowWhatsAppDialog(true);
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul.', '_blank');
+    setShowWhatsAppDialog(false);
   };
 
   return (
@@ -74,18 +85,13 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul."
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button 
+                onClick={handleWhatsAppClick}
+                className="bg-emerald-500 hover:bg-emerald-600 text-white gap-2 rounded-full px-5"
               >
-                <Button 
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white gap-2 rounded-full px-5"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp
-                </Button>
-              </a>
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -134,17 +140,13 @@ export default function Header() {
                   ))}
                 </nav>
                 <div className="mt-8 space-y-3">
-                  <a
-                    href="https://wa.me/905331358890?text=Hi%20Vector%20Fast%20Print%2C%0A%0AI%20need%20services%20in%20Istanbul."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
+                  <Button 
+                    onClick={handleWhatsAppClick}
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white gap-2 h-12 text-base"
                   >
-                    <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white gap-2 h-12 text-base">
-                      <MessageCircle className="w-5 h-5" />
-                      WhatsApp Us
-                    </Button>
-                  </a>
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp Us
+                  </Button>
                   <a
                     href="mailto:new@vectorfastprint.com?subject=Event%20Services%20Request"
                     className="block"
@@ -159,7 +161,13 @@ export default function Header() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </>
-  );
-}
+        </AnimatePresence>
+
+        <WhatsAppConfirmDialog 
+        isOpen={showWhatsAppDialog}
+        onOpenChange={setShowWhatsAppDialog}
+        onConfirm={openWhatsApp}
+        />
+        </>
+        );
+        }

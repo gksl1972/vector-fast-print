@@ -2,6 +2,7 @@ import React from 'react';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { MessageCircle, Mail, Clock, Award, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import WhatsAppConfirmDialog from '../WhatsAppConfirmDialog';
 
 const HERO_BG_URL = "/hero-v4-1280w.webp";
 
