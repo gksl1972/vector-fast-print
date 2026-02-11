@@ -1,9 +1,4 @@
 User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-json/
-Disallow: /?post_type=
-Disallow: /2023/
-Disallow: /layout_tag/
-Disallow: /et_tb_item_type/
+Allow: /
 
 Sitemap: https://vectorfastprint.com/sitemap.xml
