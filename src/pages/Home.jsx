@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Header from '@/components/landing/Header';
 import Hero from '@/components/landing/Hero';
-import Services from '@/components/landing/Services';
-import WhyChooseUs from '@/components/landing/WhyChooseUs';
-import HowItWorks from '@/components/landing/HowItWorks';
-import CaseStudy from '@/components/landing/CaseStudy';
-import Testimonials from '@/components/landing/Testimonials';
-import FinalCTA from '@/components/landing/FinalCTA';
-import Footer from '@/components/landing/Footer';
-import BackToTop from '@/components/landing/BackToTop';
 import SEO from '@/components/SEO';
+
+// Lazy load below-the-fold sections
+const Services = React.lazy(() => import('@/components/landing/Services'));
+const WhyChooseUs = React.lazy(() => import('@/components/landing/WhyChooseUs'));
+const HowItWorks = React.lazy(() => import('@/components/landing/HowItWorks'));
+const CaseStudy = React.lazy(() => import('@/components/landing/CaseStudy'));
+const Testimonials = React.lazy(() => import('@/components/landing/Testimonials'));
+const FinalCTA = React.lazy(() => import('@/components/landing/FinalCTA'));
+const Footer = React.lazy(() => import('@/components/landing/Footer'));
+const BackToTop = React.lazy(() => import('@/components/landing/BackToTop'));
+
+// Loading fallback for sections
+const SectionLoader = () => <div className="w-full h-[50vh] bg-slate-50/50 animate-pulse" />;
 
 export default function Home() {
   return (
@@ -18,15 +23,39 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <WhyChooseUs />
-        <HowItWorks />
-        <CaseStudy />
-        <Testimonials />
-        <FinalCTA />
+
+        <Suspense fallback={<SectionLoader />}>
+          <Services />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <WhyChooseUs />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <HowItWorks />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <CaseStudy />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <Testimonials />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          <FinalCTA />
+        </Suspense>
       </main>
-      <Footer />
-      <BackToTop />
+
+      <Suspense fallback={<div className="w-full h-96 bg-slate-900 animate-pulse" />}>
+        <Footer />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <BackToTop />
+      </Suspense>
     </div>
   );
 }
